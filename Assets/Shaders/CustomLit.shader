@@ -75,7 +75,7 @@ Shader "Custom/CustomLit"
         // Universal Pipeline tag is required. If Universal render pipeline is not set in the graphics settings
         // this Subshader will fail. One can add a subshader below or fallback to Standard built-in to make this
         // material work with both Universal Render Pipeline and Builtin Unity Pipeline
-        Tags{"RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" "UniversalMaterialType" = "Lit" "IgnoreProjector" = "True" "ShaderModel"="4.5" "Queue" = "Geometry+1"}
+        Tags{"RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" "UniversalMaterialType" = "Lit" "IgnoreProjector" = "True" "ShaderModel"="4.5" /*"Queue" = "Geometry"*/}
         LOD 300
 
         // ------------------------------------------------------------------
@@ -91,6 +91,10 @@ Shader "Custom/CustomLit"
             ZWrite[_ZWrite]
             ZTest Always
             Cull[_Cull]
+            
+//            ZWrite Off
+//            Cull Off
+//            Lighting Off
 
             HLSLPROGRAM
             #pragma exclude_renderers gles gles3 glcore
